@@ -1,27 +1,20 @@
 var empDataArray = [];
 var empHtmlString;
-
 $("#submit").click(a => {
   a.preventDefault()
  var fname = $("#fname").val();
  var lname = $("#lname").val();
  var email = $("#email").val();
  var password = $("#password").val();
-
-
  var empData = {
     fname: fname,
     lname: lname,
     email: email,
     password: password
- }  
-
-
+ } 
  fname==""||lname==""||email==""||password==""?oops():success(empData); 
  renderTable();
 });
-
-
 $('body').on('click','.btn-danger',function(){
   Swal.fire({
     title: "Are you sure?",
@@ -47,24 +40,6 @@ $('body').on('click','.btn-danger',function(){
     }
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function clearField()   {
 $("#fname").val("");
 $("#lname").val("");
@@ -72,7 +47,6 @@ $("#email").val("");
 $("#password").val("");
 }
 function renderTable(){
-
 var empHtmlString="";
 empDataArray.forEach(a => {
   var password = "anish";
@@ -92,7 +66,6 @@ function oops(){
     footer: '<a href="#">Why do I have this issue?</a>'
   });
 }
-
 function success(empData){
   var pattern= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
   if(pattern.test(empData.email))
@@ -115,6 +88,4 @@ function success(empData){
       footer: '<a href="#">Why do I have this issue?</a>'
     });
   }
-
- 
 }
